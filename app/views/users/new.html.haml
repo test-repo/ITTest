@@ -1,0 +1,17 @@
+.form-signin(style="max-width: 330px;padding-top: 20%;margin: 0 auto;")
+  =form_for @user do |f|
+    - if @user.errors.any?
+      .alert.alert-danger
+        %h2 Form is invalid
+        %ul
+          - for message in @user.errors.full_messages
+            %li==#{message}
+    %input.form-control{ name: 'user[name]', autofocus: "", placeholder: "Введите имя", required: "", type: ""}
+    %br/
+    %input.form-control{ name: 'user[last_name]', placeholder: "Введите фамилию", required: "", type: ""}
+    %br/
+    %input.form-control{ name: 'user[email]', placeholder: "Введите Email", required: "", type: "email"}
+    %br/
+    %input.form-control{ name: 'user[phone]', placeholder: "Введите телефон", required: "", type: ""}
+    %br/
+    %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Sign in 
